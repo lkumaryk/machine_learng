@@ -1,1 +1,3 @@
-# machine_learng
+# machine_learning algorithms
+Classification
+K means
