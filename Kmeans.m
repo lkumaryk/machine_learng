@@ -1,4 +1,4 @@
-%---k means
+%---k means implementation
 f=load('/MATLAB/work/AllSamples.mat');
 samples = cell2mat(struct2cell(f));
 centroids_st1 ={};
@@ -22,8 +22,8 @@ random_c(9,:) = samples(21,:);
 random_c(9,:) = samples(250,:);
 random_c(10,:) = samples(47,:);
 fprintf('OBJECTIVE FUNCTION VALUES\n');
-fprintf('Strategy 1 Set#1\n');
-result = strategy_1(random_c,samples);
+fprintf('K means Set#1\n');
+result = km(random_c,samples);
 fprintf('%.0f\n',result);
 figure('Name','Strategy 1','NumberTitle','off')
 plot(2:10,result,'r');
@@ -41,7 +41,7 @@ random_c(9,:) = samples(20,:);
 random_c(9,:) = samples(250,:);
 random_c(10,:) = samples(47,:);
 fprintf(' Set#2\n');
-result=strategy_1(random_c,samples);
+result=km(random_c,samples);
 fprintf('%.0f\n',result);
 xlabel('number of clusters k');
 ylabel('objective function value');
@@ -122,7 +122,7 @@ else
 end
 end
 
-function [result]= strategy_1(random_c,samples)
+function [result]= km(random_c,samples)
 %-----------------------------------------
 %function to implement k means clustering and to find objective function values
 %input: initial random centroid values, data samples
